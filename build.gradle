@@ -1,0 +1,121 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        jcenter()
+    }
+    dependencies {
+        classpath "de.richsource.gradle.plugins:gwt-gradle-plugin:0.6"
+        classpath "com.android.tools.build:gradle:2.0.0"
+    }
+}
+
+allprojects {
+    apply plugin: "eclipse"
+    apply plugin: "idea"
+
+    version = "1.0"
+    ext {
+        appName = "BludBourne"
+        gdxVersion = "1.9.3"
+        artemisOdbVersion = "2.0.0-RC5"
+        junitVersion = "4.12"
+        mockitoVersion = "1.10.19"
+    }
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+    }
+}
+
+project(":desktop") {
+    apply plugin: "java"
+
+
+    dependencies {
+        compile project(":core")
+        compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+        compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    }
+}
+
+project(":android") {
+    apply plugin: "android"
+
+    configurations { natives }
+
+    dependencies {
+        compile project(":core")
+        compile "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
+        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi"
+        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a"
+        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-arm64-v8a"
+        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
+        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86_64"
+    }
+}
+
+project(":html") {
+    apply plugin: "gwt"
+    apply plugin: "war"
+
+
+    dependencies {
+        compile project(":core")
+        compile "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
+        compile "com.badlogicgames.gdx:gdx:$gdxVersion:sources"
+        compile "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
+        compile "net.onedaybeard.artemis:artemis-odb-gwt:$artemisOdbVersion"
+        compile "net.onedaybeard.artemis:artemis-odb-gwt:$artemisOdbVersion:sources"
+        compile "net.onedaybeard.artemis:artemis-odb:$artemisOdbVersion:sources"
+    }
+}
+
+project(":core") {
+    apply plugin: "java"
+    apply plugin: "jacoco"
+
+    sourceSets.test.java.srcDirs = ["testsrc/"]
+    sourceSets {
+        main {
+            resources.srcDirs += ["../android/assets"]
+        }
+    }
+
+    test {
+        finalizedBy jacocoTestReport
+    }
+
+    jacoco {
+        toolVersion = "0.7.7.201606060606"
+    }
+
+    jacocoTestReport {
+        reports {
+            xml.enabled false
+            csv.enabled false
+            html.destination "${buildDir}/jacocoHtml"
+        }
+    }
+
+    dependencies {
+        compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+        compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+        compile "net.onedaybeard.artemis:artemis-odb:$artemisOdbVersion"
+
+        testCompile "junit:junit:$junitVersion"
+        testCompile "org.mockito:mockito-all:$mockitoVersion"
+
+        testCompile "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
+        testCompile "com.badlogicgames.gdx:gdx:$gdxVersion"
+        testCompile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    }
+}
+
+tasks.eclipse.doLast {
+    delete ".project"
+}
