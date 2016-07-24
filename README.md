@@ -4,7 +4,7 @@ A libGDX RPG game using artemis-odb and JaCoCo test code coverage
 **Status**: Still in development!!!
 
 This pet project is my attempt to learn to use libGDX on a larger scale.
-I'm implemented artemis-odb to avoid code clutter and developing via TDD methodology.
+I've implemented artemis-odb to avoid code clutter and developing via TDD methodology.
 Hopefully it all works out :).
 
 BludBourne was built thanks to the work of...
