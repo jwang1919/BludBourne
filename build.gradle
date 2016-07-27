@@ -22,6 +22,7 @@ allprojects {
         artemisOdbVersion = "2.0.0-RC5"
         junitVersion = "4.12"
         mockitoVersion = "1.10.19"
+        overlapVersion = "0.1.2-SNAPSHOT"
     }
 
     repositories {
@@ -40,6 +41,7 @@ project(":desktop") {
         compile project(":core")
         compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+        compile "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
     }
 }
 
@@ -69,6 +71,8 @@ project(":html") {
         compile "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx:$gdxVersion:sources"
         compile "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
+        compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion:sources"
+        compile "com.badlogicgames.gdx:gdx-box2d-gwt:$gdxVersion:sources"
         compile "net.onedaybeard.artemis:artemis-odb-gwt:$artemisOdbVersion"
         compile "net.onedaybeard.artemis:artemis-odb-gwt:$artemisOdbVersion:sources"
         compile "net.onedaybeard.artemis:artemis-odb:$artemisOdbVersion:sources"
@@ -106,6 +110,7 @@ project(":core") {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
         compile "net.onedaybeard.artemis:artemis-odb:$artemisOdbVersion"
+        compile "com.underwaterapps.overlap2druntime:overlap2d-runtime-libgdx:$overlapVersion"
 
         testCompile "junit:junit:$junitVersion"
         testCompile "org.mockito:mockito-all:$mockitoVersion"
