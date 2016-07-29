@@ -44,15 +44,6 @@ local.properties
 .externalToolBuilders/
 *.launch
 
-## NetBeans
-**/nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-nbactions.xml
-nb-configuration.xml
-
 ## Gradle
 
 .gradle
@@ -62,3 +53,7 @@ build/
 ## OS Specific
 .DS_Store
 Thumbs.db
+core/assets/orig/spine_animations/
+core/assets/orig/sprite_animations/
+core/assets/orig/spriter_animations/
+core/assets/particles/
