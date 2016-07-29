@@ -4,11 +4,12 @@ A libGDX RPG game using ~~artemis-odb~~ Ashley ECS, Overlap2D and JaCoCo test co
 **Status**: Still in development!!!
 
 UPDATE: 7/28/16
+Changed from artemis-odb to Ashley ECS since the Overlap2D LibGDX runtime is built to using Ashley ECS.
 Dropped support for HTML since there is no HTML Overlap2D runtime at this moment.
 Dropped support for Android to avoid complexities involving viewports and controls. 
 
 This pet project is my attempt to learn to use libGDX on a larger scale.
-I've implemented artemis-odb to avoid code clutter and developing via TDD methodology.
+I've implemented ~~artemis-odb~~ Ashley ECS to avoid code clutter and developing via TDD methodology.
 Hopefully it all works out :).
 
 BludBourne was built thanks to the work of...
