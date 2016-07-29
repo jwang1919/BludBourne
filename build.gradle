@@ -7,7 +7,6 @@ buildscript {
     }
     dependencies {
         classpath "de.richsource.gradle.plugins:gwt-gradle-plugin:0.6"
-        classpath "com.android.tools.build:gradle:2.0.0"
     }
 }
 
@@ -45,40 +44,6 @@ project(":desktop") {
     }
 }
 
-project(":android") {
-    apply plugin: "android"
-
-    configurations { natives }
-
-    dependencies {
-        compile project(":core")
-        compile "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
-        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi"
-        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a"
-        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-arm64-v8a"
-        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
-        natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86_64"
-    }
-}
-
-project(":html") {
-    apply plugin: "gwt"
-    apply plugin: "war"
-
-
-    dependencies {
-        compile project(":core")
-        compile "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
-        compile "com.badlogicgames.gdx:gdx:$gdxVersion:sources"
-        compile "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
-        compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion:sources"
-        compile "com.badlogicgames.gdx:gdx-box2d-gwt:$gdxVersion:sources"
-        compile "net.onedaybeard.artemis:artemis-odb-gwt:$artemisOdbVersion"
-        compile "net.onedaybeard.artemis:artemis-odb-gwt:$artemisOdbVersion:sources"
-        compile "net.onedaybeard.artemis:artemis-odb:$artemisOdbVersion:sources"
-    }
-}
-
 project(":core") {
     apply plugin: "java"
     apply plugin: "jacoco"
@@ -86,7 +51,7 @@ project(":core") {
     sourceSets.test.java.srcDirs = ["testsrc/"]
     sourceSets {
         main {
-            resources.srcDirs += ["../android/assets"]
+            resources.srcDirs += ["core/assets"]
         }
     }
 

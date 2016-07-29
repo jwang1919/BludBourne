@@ -5,7 +5,9 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.jwang1919.bludbourne.scripts.Player;
 import com.uwsoft.editor.renderer.SceneLoader;
+import com.uwsoft.editor.renderer.utils.ItemWrapper;
 
 /**
  * Created by jwang1919 on 7/26/2016.
@@ -19,6 +21,10 @@ public class Overlap2DTestScreen extends ScreenAdapter {
         final Viewport viewport = new FitViewport(267F, 160F);
         sceneLoader = new SceneLoader();
         sceneLoader.loadScene("MainScene", viewport);
+
+        final ItemWrapper root = new ItemWrapper(sceneLoader.getRoot());
+        final Player player = new Player();
+        root.getChild("player").addScript(player);
     }
 
     @Override
