@@ -6,7 +6,6 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath "de.richsource.gradle.plugins:gwt-gradle-plugin:0.6"
     }
 }
 
@@ -14,11 +13,10 @@ allprojects {
     apply plugin: "eclipse"
     apply plugin: "idea"
 
-    version = "1.0"
+    version = '1.0'
     ext {
         appName = "BludBourne"
         gdxVersion = "1.9.3"
-        artemisOdbVersion = "2.0.0-RC5"
         junitVersion = "4.12"
         mockitoVersion = "1.10.19"
         overlapVersion = "0.1.2-SNAPSHOT"
@@ -51,7 +49,7 @@ project(":core") {
     sourceSets.test.java.srcDirs = ["testsrc/"]
     sourceSets {
         main {
-            resources.srcDirs += ["core/assets"]
+            resources.srcDirs += ["../core/assets"]
         }
     }
 
@@ -74,7 +72,6 @@ project(":core") {
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
-        compile "net.onedaybeard.artemis:artemis-odb:$artemisOdbVersion"
         compile "com.underwaterapps.overlap2druntime:overlap2d-runtime-libgdx:$overlapVersion"
 
         testCompile "junit:junit:$junitVersion"

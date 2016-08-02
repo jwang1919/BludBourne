@@ -1,27 +1,69 @@
 
 pack.png
-size: 1024,256
+size: 64,64
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-barrack
+grass-bottom
   rotate: false
-  xy: 377, 72
-  size: 250, 150
-  orig: 250, 150
+  xy: 20, 38
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1
-car
+grass-bottom-left
+  rotate: false
+  xy: 2, 38
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+grass-bottom-right
+  rotate: false
+  xy: 2, 20
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+grass-center
   rotate: false
   xy: 2, 2
-  size: 158, 116
-  orig: 158, 116
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1
-groundGrass
+grass-left
   rotate: false
-  xy: 2, 120
-  size: 373, 102
-  orig: 373, 102
+  xy: 20, 20
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+grass-right
+  rotate: false
+  xy: 38, 38
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+grass-top
+  rotate: false
+  xy: 38, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+grass-top-left
+  rotate: false
+  xy: 20, 2
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+grass-top-right
+  rotate: false
+  xy: 38, 20
+  size: 16, 16
+  orig: 16, 16
   offset: 0, 0
   index: -1

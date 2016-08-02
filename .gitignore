@@ -21,6 +21,12 @@ www-test/
 .gwt-tmp/
 
 ## Android Studio and Intellij and Android in general
+android/libs/armeabi/
+android/libs/armeabi-v7a/
+android/libs/arm64-v8a/
+android/libs/x86/
+android/libs/x86_64/
+android/gen/
 .idea/
 *.ipr
 *.iws
@@ -44,6 +50,15 @@ local.properties
 .externalToolBuilders/
 *.launch
 
+## NetBeans
+**/nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
 ## Gradle
 
 .gradle
@@ -53,7 +68,3 @@ build/
 ## OS Specific
 .DS_Store
 Thumbs.db
-core/assets/orig/spine_animations/
-core/assets/orig/sprite_animations/
-core/assets/orig/spriter_animations/
-core/assets/particles/
