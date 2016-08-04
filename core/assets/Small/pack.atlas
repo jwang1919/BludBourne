@@ -1,27 +1,27 @@
 
 pack.png
-size: 2048,2048
+size: 1024,512
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 castleofdoom
   rotate: false
-  xy: 1204, 404
-  size: 512, 1280
-  orig: 512, 1280
+  xy: 404, 2
+  size: 171, 427
+  orig: 171, 427
   offset: 0, 0
   index: -1
 topworld
   rotate: false
-  xy: 2, 484
-  size: 1200, 1200
-  orig: 1200, 1200
+  xy: 2, 29
+  size: 400, 400
+  orig: 400, 400
   offset: 0, 0
   index: -1
 town
   rotate: false
-  xy: 2, 2
-  size: 640, 480
-  orig: 640, 480
+  xy: 577, 269
+  size: 213, 160
+  orig: 213, 160
   offset: 0, 0
   index: -1

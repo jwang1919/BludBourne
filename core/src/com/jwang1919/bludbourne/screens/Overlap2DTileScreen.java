@@ -18,9 +18,9 @@ public class Overlap2DTileScreen extends ScreenAdapter {
 
     @Override
     public void show() {
-        final Viewport viewport = new FitViewport(2F, 2F);
+        final Viewport viewport = new FitViewport(8F, 6F);
         sceneLoader = new SceneLoader();
-        sceneLoader.loadScene("MainScene", viewport);
+        sceneLoader.loadScene("TopWorld", viewport);
 
 //        final ItemWrapper root = new ItemWrapper(sceneLoader.getRoot());
 //        final Player player = new Player();
